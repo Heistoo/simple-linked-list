@@ -1,13 +1,19 @@
-import java.util.Random;
-
 public class TesteLista{
-public static void main(String[] args){
-    Random r = new Random();
-    Lista l = new Lista();
-    System.out.println(l);
-    for (int i=1; i<=10; i++){
-        l.insereInicio(r.nextInt(10));
+    public static void main(String[] args){
+        Lista l = new Lista();
         System.out.println(l);
+        
+        // Null pointer
+        l.removeInicio();
+
+        for (int i=1; i<=6; i++){
+            l.insereInicio(i*10);
+            System.out.println(l);
+        }
+        for (int i=1; i<=6; i++){
+            l.insereFim(i*10+5);
+            System.out.println(l);
+        }
+
     }
-}
 }
