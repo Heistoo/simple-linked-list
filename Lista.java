@@ -10,6 +10,10 @@ public class Lista{
     public No getPrimeiro(){
         return primeiro;
     }
+    public void setPrimeiro (No primeiro){
+        this.primeiro = primeiro;
+        
+    }
     public void insereInicio (int i) {
         No novo = new No(i);
         if (!estaVazia()){   
