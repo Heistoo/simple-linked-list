@@ -6,7 +6,7 @@ public class TesteLista{
         // Null pointer
         // l.removeInicio();
 
-        for (int i=1; i<=6; i++){
+        for (int i=1; i<2; i++){
             l.insereInicio(i*10);
             System.out.println(l);
         }
@@ -14,15 +14,15 @@ public class TesteLista{
             l.insereFim(i*10+5);
             System.out.println(l);
         }
-        // if (l.estaVazia()){
-        //     System.out.println("Lista vázia, não há o que remover");
-        // }
-        // else{
-        //     System.out.println(l.removeFim()+ " saiu do fim");
-        // }
+        if (l.estaVazia()){
+            System.out.println("Lista vázia, não há o que remover");
+        }
+        else{
+            System.out.println(l.removeFim()+ " saiu do fim");
+        }
 
         //DIVERSÃO!!!
-        //1- IMPLEMENTAR O removeFim para LISTA
+        //1- IMPLEMENTAR O removeFim para LISTA || OK.
         //2- implementar o removeFim para LISTACOMULTIMO
         //3- IMPLEMENTAR UM TESTE PARA LISTACOMULTIMO
     }

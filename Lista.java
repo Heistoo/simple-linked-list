@@ -28,7 +28,7 @@ public class Lista{
         }
         else{
             No temp = primeiro;
-            while (temp.getProximo() != null){
+            while (temp.getProximo() != null){ //percorrendo a lista até o ultimo elemento
                 temp = temp.getProximo();
             }
             temp.setProximo(novo);
@@ -41,6 +41,23 @@ public class Lista{
         // Só depois devolverá aquela informação
         return aux;
     }    
+    public int removeFim(){
+        int aux;
+        if (primeiro.getProximo() == null){
+            aux = primeiro.getInfo();
+            primeiro = null; // esvaziou a lista
+        }
+        else{
+            //preciso percorrer a lista em busca do último elemento
+            No temp = primeiro;
+            while(temp.getProximo().getProximo() != null){ // o próximo do próximo
+                temp = temp.getProximo();
+            }
+            aux = temp.getProximo().getInfo();
+            temp.setProximo(null);
+        }
+        return aux;
+    } 
     @Override 
         public String toString(){
             String s = "lista: ";
