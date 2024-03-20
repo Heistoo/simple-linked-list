@@ -30,4 +30,14 @@ public class ListaDupla{
         }
         ultimo = novo;
     }
+    public int removeInicio(){
+        int aux = primeiro.getInfo();
+        primeiro = primeiro.getProximo();
+        if (estaVazia()){
+            ultimo = null;
+        }
+        else{
+            primeiro.setAnterior(null);
+        }
+    }
 }
