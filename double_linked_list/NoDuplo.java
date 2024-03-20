@@ -27,6 +27,6 @@ public class NoDuplo{
     }
     @Override
     public String toString(){
-        return "|" + info + "|"
+        return "|" + info + "|";
     }
 }
