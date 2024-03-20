@@ -39,6 +39,23 @@ public class ListaDupla{
         else{
             primeiro.setAnterior(null);
         }
-        // to do: removeFim
+        return aux;
+    }
+    public int removeFim(){
+        int aux;
+        if (primeiro.getProximo() == null){
+            aux = primeiro.getInfo();
+            primeiro = null;
+        }
+        else{
+            aux = ultimo.getInfo();
+            NoDuplo temp = primeiro;
+            while (temp.getProximo() != ultimo){
+                temp = temp.getProximo();
+            }
+            temp.setProximo(null);
+            ultimo = temp;
+        }
+        return aux;
     }
 }
