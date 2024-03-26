@@ -33,7 +33,7 @@ public class ListaDupla{
     public int removeInicio(){
         int aux = primeiro.getInfo();
         primeiro = primeiro.getProximo();
-        if (estaVazia()){
+        if (primeiro == null){ // se esvaziou a lista
             ultimo = null;
         }
         else{
@@ -42,20 +42,52 @@ public class ListaDupla{
         return aux;
     }
     public int removeFim(){
-        int aux;
-        if (primeiro.getProximo() == null){
-            aux = primeiro.getInfo();
+        int aux = ultimo.getInfo();
+        ultimo = ultimo.getAnterior();
+        if(ultimo == null){
             primeiro = null;
         }
         else{
-            aux = ultimo.getInfo();
-            NoDuplo temp = primeiro;
-            while (temp.getProximo() != ultimo){
-                temp = temp.getProximo();
-            }
-            temp.setProximo(null);
-            ultimo = temp;
+            ultimo.setProximo(null);
         }
         return aux;
     }
+    @Override
+    public String toString(){
+        String s = "";
+        if (estaVazia()){
+            s += "lista vazia";
+        }
+        else{
+            s += "< = ";
+            NoDuplo aux = primeiro;
+            while (aux != null){
+                s += aux + " = ";
+                aux = aux.getProximo();
+            }
+            s += ">";
+        }
+        return s;
+    }   
+    public int removePosicao(int posicao){
+        
+    }
+    //minha solução
+    // public int removeFim(){
+    //     int aux;
+    //     if (primeiro.getProximo() == null){
+    //         aux = primeiro.getInfo();
+    //         primeiro = null;
+    //     }
+    //     else{
+    //         aux = ultimo.getInfo();
+    //         NoDuplo temp = primeiro;
+    //         while (temp.getProximo() != ultimo){
+    //             temp = temp.getProximo();
+    //         }
+    //         temp.setProximo(null);
+    //         ultimo = temp;
+    //     }
+    //     return aux;
+    // }
 }
