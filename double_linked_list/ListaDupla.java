@@ -70,8 +70,21 @@ public class ListaDupla{
         return s;
     }   
     public int removePosicao(int posicao){
-        
+        if (posicao == 1){
+            return removeFim();
+        else{
+            int cont = 1;
+            NoDuplo aux = primeiro;
+            while (cont < posicao){
+                cont++;
+                aux = aux.getProximo(); 
+            }
+            aux.getAnterior().setProximo(aux.getProximo());
+            aux.getProximo().setAnterior(aux.getAnterior());
+            return aux.getInfo();
+        }
     }
+}
     //minha solução
     // public int removeFim(){
     //     int aux;
