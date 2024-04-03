@@ -70,9 +70,7 @@ public class ListaDupla{
         return s;
     }   
     public int removePosicao(int posicao){
-        if (posicao == 1){
-            return removeFim();
-        else{
+        if (posicao == 1)return removeFim();
             int cont = 1;
             NoDuplo aux = primeiro;
             while (cont < posicao){
@@ -82,9 +80,33 @@ public class ListaDupla{
             aux.getAnterior().setProximo(aux.getProximo());
             aux.getProximo().setAnterior(aux.getAnterior());
             return aux.getInfo();
-        }
-    }
 }
+    public boolean removeOcorrencia(int x){
+        if (estaVazia()) return false;
+        if (primeiro.getInfo() == x){
+            primeiro = primeiro.getProximo();
+            if (primeiro == null){
+                ultimo = null;
+            }
+            return true;
+        }
+        NoDuplo atual = primeiro.getProximo();
+        boolean achou = false;
+        while (atual != null && !achou){
+            if(atual.getInfo() == x) achou = true;
+            else atual = atual.getProximo();
+        }
+        if (!achou) return false;
+        if (atual == ultimo){
+            ultimo = ultimo.getAnterior();
+            ultimo.setProximo(null);
+        }
+        else{
+            atual.getAnterior().setProximo(atual.getProximo());
+            atual.getProximo().setAnterior(atual.getAnterior());
+        }
+        return true;
+    }
     //minha solução
     // public int removeFim(){
     //     int aux;
